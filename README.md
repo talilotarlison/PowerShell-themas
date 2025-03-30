@@ -159,3 +159,30 @@ Get-ExecutionPolicy
 ```
 
 Depois de seguir esses passos, o erro deve ser resolvido, e você conseguirá executar seus scripts no PowerShell. Lembre-se de ter cuidado ao executar scripts de fontes não confiáveis!
+Para remover ou ocultar o banner inicial do PowerShell, que exibe informações como a copyright da Microsoft e recomendações, você pode usar algumas abordagens diferentes. Entretanto, a remoção completa desse texto ao iniciar o PowerShell não é uma configuração oficial. Aqui estão algumas opções que você pode considerar:
+
+1. **Uso do arquivo de perfil**: Você pode editar o arquivo de perfil do PowerShell que é carregado toda vez que você inicia uma sessão. Adicionar um comando para limpar a tela pode ajudar a ocultar o texto inicial. Para fazer isso, siga estas etapas:
+
+- Abra o PowerShell.
+- Execute o seguinte comando para abrir seu arquivo de perfil em um editor de texto (caso o arquivo não exista, ele será criado):
+```powershell
+notepad $PROFILE
+```
+- Adicione a seguinte linha ao final do arquivo:
+```powershell
+Clear-Host
+```
+- Salve e feche o editor.
+
+2. **Iniciando o PowerShell em modo de tela limpa**: Você pode iniciar o PowerShell com uma linha de comando que limpa a tela logo ao abrir. Para fazer isso, crie um atalho e veja as opções avançadas da configuração do atalho:
+
+- Crie um atalho para o PowerShell.
+- Clique com o botão direito e vá até "Propriedades".
+- Na guia "Atalho", adicione `-NoExit -Command "Clear-Host"` ao final do campo "Destino". O campo deve ficar parecido com isso:
+```plaintext
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoExit -Command "Clear-Host"
+```
+
+3. **Usar um terminal alternativo**: Algumas pessoas preferem usar terminais alternativos que já oferecem configurações mais personalizáveis e um aspecto mais minimalista, como Windows Terminal, que permite várias configurações e personalizações.
+
+Infelizmente, não há uma maneira direta de desativar essa mensagem de copyright no início da sessão do PowerShell, mas as dicas acima podem ajudar a limpar a apresentação inicial conforme sua preferência.
